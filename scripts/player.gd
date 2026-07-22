@@ -64,3 +64,6 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0.0, acceleration * delta * move_speed)
 
 	move_and_slide()
+
+func interact():
+	pass

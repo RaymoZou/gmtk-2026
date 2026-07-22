@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://du3saj87a32dk"]
+
+[ext_resource type="Script" uid="uid://cb7y7ycsn68bh" path="res://scripts/hud.gd" id="1_37p78"]
+
+[node name="Hud" type="Control" unique_id=688769851]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_37p78")
+
+[node name="HourLabel" type="Label" parent="." unique_id=290494461]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "CURRENT_HOUR"
+
+[node name="DayOverMenu" type="Control" parent="." unique_id=343527039]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 0
+offset_left = 330.0
+offset_top = 141.0
+offset_right = 871.0
+offset_bottom = 486.0
+
+[node name="RestartButton" type="Button" parent="DayOverMenu" unique_id=16259029]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 220.0
+offset_bottom = 124.0
+text = "NEXT DAY"
