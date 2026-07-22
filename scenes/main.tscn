@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://da8sgbng7wcgu"]
+
+[ext_resource type="Script" uid="uid://c32jgg27otcdl" path="res://scripts/main.gd" id="1_o5qli"]
+[ext_resource type="PackedScene" uid="uid://bk3rtxa1ypj1p" path="res://scenes/player.tscn" id="2_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://mkjauhtsnxga" path="res://assets/Office Pack-glb/Desk.glb" id="3_sugp2"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_ub8u7"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_jyhfs"]
+size = Vector2(50, 50)
+
+[node name="Main" type="Node3D" unique_id=434324966]
+script = ExtResource("1_o5qli")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=2112887880]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1726195428]
+shape = SubResource("WorldBoundaryShape3D_ub8u7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=1002222240]
+mesh = SubResource("PlaneMesh_jyhfs")
+
+[node name="Player" parent="." unique_id=239933089 instance=ExtResource("2_0wfyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4322727, 0)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1313746181]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9403095, 0)
+omni_range = 8.135
+omni_attenuation = -0.22
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=138624452]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7264056, -2.8612757)
+
+[node name="Root Scene" parent="." unique_id=677113064 instance=ExtResource("3_sugp2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9407873, 2.7196844e-08, 1.9638088)
