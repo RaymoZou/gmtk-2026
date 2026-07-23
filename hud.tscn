@@ -2,25 +2,38 @@
 
 [ext_resource type="Script" uid="uid://cb7y7ycsn68bh" path="res://scripts/hud.gd" id="1_37p78"]
 
-[node name="Hud" type="Control" unique_id=688769851]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Hud" type="CanvasLayer" unique_id=1197527564]
 script = ExtResource("1_37p78")
 
 [node name="HourLabel" type="Label" parent="." unique_id=290494461]
 unique_name_in_owner = true
-layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 text = "CURRENT_HOUR"
 
+[node name="InteractLabel" type="Label" parent="." unique_id=1188377342]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -300.0
+offset_top = -60.0
+offset_right = 300.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+horizontal_alignment = 1
+
 [node name="DayOverMenu" type="Control" parent="." unique_id=343527039]
 unique_name_in_owner = true
 visible = false
+layout_mode = 3
 anchors_preset = 0
 offset_left = 330.0
 offset_top = 141.0
