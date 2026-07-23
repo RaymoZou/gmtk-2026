@@ -7,7 +7,7 @@ signal task_completed(task : Task)
 
 func _ready() -> void:
 	task = task.duplicate() # so we don't modify the original
-	print(task.status)
+	interact_text = task.description
 
 func interact(_body: Node3D):
 	if task and task.status != Task.Status.COMPLETED:
