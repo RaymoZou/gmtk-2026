@@ -13,7 +13,14 @@ script = ExtResource("1_3vyb7")
 shape = SubResource("CapsuleShape3D_ub8u7")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=166596936]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7824207, -0.14960623)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7824207, -0.15459728)
+
+[node name="InteractRay" type="RayCast3D" parent="Camera3D" unique_id=1690512929]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5285835)
+target_position = Vector3(0, 0, -1)
+hit_from_inside = true
+collide_with_areas = true
+debug_shape_custom_color = Color(0, 1, 0, 1)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1385222695]
 mesh = SubResource("CapsuleMesh_ub8u7")

@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cgrig7c8oslyv"]
+
+[ext_resource type="Script" uid="uid://n874yr2ril5w" path="res://scripts/interactable.gd" id="1_8pqrt"]
+[ext_resource type="PackedScene" uid="uid://bvfkuhgwl0yct" path="res://assets/Office Pack-glb/Computer.glb" id="1_om4aa"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ub8u7"]
+
+[node name="Computer" type="Area3D" unique_id=233472860]
+script = ExtResource("1_8pqrt")
+interact_text = "Email client"
+
+[node name="Computer" parent="." unique_id=1157794066 instance=ExtResource("1_om4aa")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1372774818]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15288034, 0.34969106, 0)
+shape = SubResource("BoxShape3D_ub8u7")
