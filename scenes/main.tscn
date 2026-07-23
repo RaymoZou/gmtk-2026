@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cr4g4g2brxcv0" path="res://assets/Office Pack-glb/Table.glb" id="7_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://cgrig7c8oslyv" path="res://scenes/computer.tscn" id="8_tipki"]
 
-[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_ub8u7"]
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_vas6c"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_jyhfs"]
 size = Vector2(50, 50)
@@ -21,9 +21,10 @@ SECONDS_PER_HOUR = 10
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=2112887880]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1726195428]
-shape = SubResource("WorldBoundaryShape3D_ub8u7")
+shape = SubResource("WorldBoundaryShape3D_vas6c")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=1002222240]
+transform = Transform3D(0.33738083, 0, 0, 0, 0.33738083, 0, 0, 0, 0.33738083, 0, 0, 0)
 mesh = SubResource("PlaneMesh_jyhfs")
 
 [node name="Player" parent="." unique_id=239933089 instance=ExtResource("2_0wfyh")]
