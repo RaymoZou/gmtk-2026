@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Task" format=3 uid="uid://brvjynexup1uj"]
+
+[ext_resource type="Script" uid="uid://c863aj41u3h0h" path="res://scripts/task.gd" id="1_23prw"]
+
+[resource]
+script = ExtResource("1_23prw")
+description = "Sign the documents"
+metadata/_custom_type_script = "uid://c863aj41u3h0h"
