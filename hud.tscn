@@ -3,6 +3,43 @@
 [ext_resource type="Script" uid="uid://cb7y7ycsn68bh" path="res://scripts/hud.gd" id="1_37p78"]
 [ext_resource type="Theme" uid="uid://dwsvceof7d8vm" path="res://tasks/ui.tres" id="2_64ctp"]
 
+[sub_resource type="Animation" id="Animation_8sq4i"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/HourLabel:theme_override_font_sizes/font_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [50]
+}
+
+[sub_resource type="Animation" id="Animation_64ctp"]
+resource_name = "hour_changed"
+length = 0.19999999999999998
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/HourLabel:theme_override_font_sizes/font_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666666, 0.16666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [42, 50, 42]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8sq4i"]
+_data = {
+&"RESET": SubResource("Animation_8sq4i"),
+&"hour_changed": SubResource("Animation_64ctp")
+}
+
 [node name="Hud" type="CanvasLayer" unique_id=1197527564]
 script = ExtResource("1_37p78")
 
@@ -21,8 +58,9 @@ unique_name_in_owner = true
 layout_mode = 1
 offset_left = 18.0
 offset_top = 25.0
-offset_right = 353.0
-offset_bottom = 145.0
+offset_right = 417.0
+offset_bottom = 147.0
+theme_override_font_sizes/font_size = 50
 text = "CURRENT_HOUR"
 
 [node name="Tasks" type="VBoxContainer" parent="Control" unique_id=2051675502]
@@ -122,3 +160,6 @@ theme_override_constants/outline_size = 4
 text = "INTERACT_TEXT"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1554617740]
+libraries/ = SubResource("AnimationLibrary_8sq4i")

@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 @onready var day : Day = get_parent()
+@onready var animation_player : AnimationPlayer = $AnimationPlayer
 @export var task_manager : TaskManager
 
 func _ready() -> void:
@@ -13,6 +14,8 @@ func _ready() -> void:
 	var player := get_parent().get_node("Player")
 	player.focused_changed.connect(_on_focused_changed)
 	player.hold_progress.connect(_on_hold_progress)
+
+
 
 func _on_tasks_updated(tasks : Array[Task]) -> void:
 	for child in %Tasks.get_children():
@@ -39,6 +42,7 @@ func _button_pressed() -> void:
 
 func _on_hour_updated(_new_hour : int):
 	%HourLabel.text = day.get_readable_hour()
+	animation_player.play("hour_changed")
 
 func _on_day_ended(success: bool):
 	%DayOverMenu.show()
