@@ -1,89 +1,68 @@
 [gd_scene format=3 uid="uid://du3saj87a32dk"]
 
 [ext_resource type="Script" uid="uid://cb7y7ycsn68bh" path="res://scripts/hud.gd" id="1_37p78"]
+[ext_resource type="Theme" uid="uid://dwsvceof7d8vm" path="res://tasks/ui.tres" id="2_64ctp"]
 
 [node name="Hud" type="CanvasLayer" unique_id=1197527564]
 script = ExtResource("1_37p78")
 
-[node name="HourLabel" type="Label" parent="." unique_id=290494461]
+[node name="Control" type="Control" parent="." unique_id=2123436431]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("2_64ctp")
+
+[node name="HourLabel" type="Label" parent="Control" unique_id=290494461]
 unique_name_in_owner = true
-offset_right = 40.0
-offset_bottom = 23.0
+layout_mode = 1
+offset_left = 18.0
+offset_top = 25.0
+offset_right = 353.0
+offset_bottom = 145.0
 text = "CURRENT_HOUR"
 
-[node name="InteractLabel" type="Label" parent="." unique_id=1188377342]
+[node name="Tasks" type="VBoxContainer" parent="Control" unique_id=2051675502]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -249.0
+offset_bottom = 283.0
+grow_horizontal = 0
+
+[node name="AllDoneLabel" type="Label" parent="Control" unique_id=1804921019]
 unique_name_in_owner = true
 visible = false
-anchors_preset = 7
+layout_mode = 1
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -300.0
-offset_top = -60.0
-offset_right = 300.0
-offset_bottom = -20.0
+offset_left = -329.5
+offset_top = 98.0
+offset_right = 329.5
+offset_bottom = 179.0
 grow_horizontal = 2
-grow_vertical = 0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 4
-horizontal_alignment = 1
-
-[node name="HoldProgressBar" type="ProgressBar" parent="."]
-unique_name_in_owner = true
-visible = false
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -200.0
-offset_top = -90.0
-offset_right = 200.0
-offset_bottom = -75.0
-grow_horizontal = 2
-grow_vertical = 0
-show_percentage = false
-
-[node name="Tasks" type="VBoxContainer" parent="." unique_id=2051675502]
-unique_name_in_owner = true
-offset_left = 978.0
-offset_top = 49.0
-offset_right = 1132.0
-offset_bottom = 215.0
-
-[node name="AllDoneLabel" type="Label" parent="."]
-unique_name_in_owner = true
-visible = false
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -300.0
-offset_top = -120.0
-offset_right = 300.0
-offset_bottom = -80.0
-grow_horizontal = 2
-grow_vertical = 0
 theme_override_colors/font_color = Color(0.133, 0.745, 0.133, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
-horizontal_alignment = 1
 text = "All tasks complete! Wait until 5 PM."
+horizontal_alignment = 1
 
-[node name="DayOverMenu" type="Control" parent="." unique_id=343527039]
+[node name="DayOverMenu" type="Control" parent="Control" unique_id=343527039]
 unique_name_in_owner = true
 visible = false
-layout_mode = 3
 anchors_preset = 0
 offset_left = 330.0
 offset_top = 141.0
 offset_right = 871.0
 offset_bottom = 486.0
 
-[node name="DayOverLabel" type="Label" parent="DayOverMenu"]
+[node name="DayOverLabel" type="Label" parent="Control/DayOverMenu" unique_id=1877768613]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 40.0
@@ -95,7 +74,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
 text = "RESULT"
 
-[node name="RestartButton" type="Button" parent="DayOverMenu" unique_id=16259029]
+[node name="RestartButton" type="Button" parent="Control/DayOverMenu" unique_id=16259029]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 160.0
@@ -103,3 +82,43 @@ offset_top = 100.0
 offset_right = 380.0
 offset_bottom = 224.0
 text = "NEXT DAY"
+
+[node name="HoldProgressBar" type="ProgressBar" parent="Control" unique_id=1315343181]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -197.0
+offset_top = -53.0
+offset_right = 198.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+value = 100.0
+show_percentage = false
+
+[node name="InteractLabel" type="Label" parent="Control" unique_id=1188377342]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -197.0
+offset_top = -53.0
+offset_right = 198.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+text = "INTERACT_TEXT"
+horizontal_alignment = 1
+vertical_alignment = 1
