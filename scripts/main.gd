@@ -49,6 +49,7 @@ func _on_time_out():
 	if current_hour == ending_hour:
 		end_day()
 
+# add 2 tasks upon task failure
 func fail_task(task: Task) -> void:
 	task.status = Task.Status.FAILED
 	curr_tasks.push_back(get_random_task())
@@ -86,5 +87,5 @@ func end_day() -> void:
 
 func _ready() -> void:
 	start_game()
-	for node in get_tree().get_nodes_in_group("interactables"):
-		(node as Interactable).task_completed.connect(_on_interactable_task_completed)
+	for interactable : Interactable in get_tree().get_nodes_in_group("interactables"):
+		interactable.task_completed.connect(_on_interactable_task_completed)
