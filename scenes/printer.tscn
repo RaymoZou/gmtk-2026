@@ -2,12 +2,14 @@
 
 [ext_resource type="PackedScene" uid="uid://svhuo14go068" path="res://assets/Office Pack-glb/Printer.glb" id="1_4lrxx"]
 [ext_resource type="Script" uid="uid://n874yr2ril5w" path="res://scripts/interactable.gd" id="1_kdvce"]
+[ext_resource type="Resource" uid="uid://b064a7fxveuhi" path="res://tasks/print.tres" id="2_jf8il"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ub8u7"]
 
 [node name="Printer" type="Area3D" unique_id=1273770118]
 script = ExtResource("1_kdvce")
 interact_text = "Print"
+task = ExtResource("2_jf8il")
 
 [node name="Root Scene" parent="." unique_id=860819043 instance=ExtResource("1_4lrxx")]
 

@@ -30,6 +30,13 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
 horizontal_alignment = 1
 
+[node name="Tasks" type="VBoxContainer" parent="." unique_id=2051675502]
+unique_name_in_owner = true
+offset_left = 978.0
+offset_top = 49.0
+offset_right = 1132.0
+offset_bottom = 215.0
+
 [node name="DayOverMenu" type="Control" parent="." unique_id=343527039]
 unique_name_in_owner = true
 visible = false
