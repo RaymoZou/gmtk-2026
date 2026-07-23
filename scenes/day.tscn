@@ -23,7 +23,7 @@ metadata/_custom_type_script = "uid://c863aj41u3h0h"
 
 [node name="Main" type="Node3D" unique_id=434324966]
 script = ExtResource("1_dr5ms")
-SECONDS_PER_HOUR = 1
+SECONDS_PER_HOUR = 5
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=2112887880]
 
