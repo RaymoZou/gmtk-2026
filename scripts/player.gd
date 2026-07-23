@@ -13,7 +13,7 @@ extends CharacterBody3D
 @export var min_pitch_deg: float = -89.0
 @export var max_pitch_deg: float = 89.0
 
-const HOLD_DURATION: float = 1.0
+const HOLD_DURATION: float = 2.0
 
 signal focused_changed(text: String, visible: bool)
 signal hold_progress(progress: float)
@@ -87,6 +87,7 @@ func _process(delta: float) -> void:
 			_hold_progress = min(_hold_progress + delta / HOLD_DURATION, 1.0)
 			hold_progress.emit(_hold_progress)
 
+			# finished holding
 			if _hold_progress >= 1.0:
 				_focused_interactable.interact(self)
 				_is_holding = false
