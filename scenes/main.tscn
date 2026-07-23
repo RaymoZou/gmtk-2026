@@ -38,13 +38,13 @@ omni_attenuation = -0.22
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=138624452]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.529827, 0.14915729)
 
-[node name="Root Scene" parent="." unique_id=677113064 instance=ExtResource("3_sugp2")]
+[node name="Desk" parent="." unique_id=677113064 instance=ExtResource("3_sugp2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9407873, 2.7196844e-08, 1.9638088)
 
-[node name="Printer" parent="Root Scene" unique_id=1273770118 instance=ExtResource("5_tbgi4")]
+[node name="Printer" parent="Desk" unique_id=1273770118 instance=ExtResource("5_tbgi4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.153573, 1.1341118, -3.059049)
 
-[node name="Paper" parent="Root Scene" unique_id=1954391086 instance=ExtResource("6_tefeu")]
+[node name="Paper" parent="Desk" unique_id=1954391086 instance=ExtResource("6_tefeu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.1873407, 1.1560067, -3.1747463)
 
 [node name="Timer" type="Timer" parent="." unique_id=278046609]
