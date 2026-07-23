@@ -2,13 +2,18 @@
 
 [ext_resource type="Script" uid="uid://c525tqwp4kov5" path="res://scripts/interactable_task.gd" id="1_8pqrt"]
 [ext_resource type="PackedScene" uid="uid://bvfkuhgwl0yct" path="res://assets/Office Pack-glb/Computer.glb" id="1_om4aa"]
-[ext_resource type="Resource" uid="uid://b064a7fxveuhi" path="res://tasks/print.tres" id="2_7ikar"]
+[ext_resource type="Script" uid="uid://c863aj41u3h0h" path="res://scripts/task.gd" id="2_7ikar"]
+
+[sub_resource type="Resource" id="Resource_tjrug"]
+script = ExtResource("2_7ikar")
+description = "Email the reports"
+metadata/_custom_type_script = "uid://c863aj41u3h0h"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ub8u7"]
 
 [node name="Computer" type="Area3D" unique_id=233472860]
 script = ExtResource("1_8pqrt")
-task = ExtResource("2_7ikar")
+task = SubResource("Resource_tjrug")
 
 [node name="Computer" parent="." unique_id=1157794066 instance=ExtResource("1_om4aa")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)

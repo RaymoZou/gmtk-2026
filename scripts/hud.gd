@@ -1,13 +1,13 @@
 extends CanvasLayer
 
-# NOTE: assume main.tscn is the parent
 @onready var day : Day = get_parent()
+@export var task_manager : TaskManager
 
 func _ready() -> void:
 	day.hour_updated.connect(_on_hour_updated)
 	day.day_ended.connect(_on_day_ended)
-	day.tasks_updated.connect(_on_tasks_updated)
-	day.all_tasks_completed.connect(_on_all_tasks_completed)
+	task_manager.tasks_updated.connect(_on_tasks_updated)
+	task_manager.all_tasks_completed.connect(_on_all_tasks_completed)
 	%RestartButton.pressed.connect(_button_pressed)
 
 	var player := get_parent().get_node("Player")
@@ -29,13 +29,12 @@ func _on_tasks_updated(tasks : Array[Task]) -> void:
 			_:
 				label.text = "[ ] " + task.description
 		%Tasks.add_child(label)
-	%AllDoneLabel.visible = false
 
 func _on_all_tasks_completed() -> void:
 	%AllDoneLabel.show()
 
 func _button_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/main.tscn")
+	get_tree().change_scene_to_file("res://scenes/day.tscn")
 
 func _on_hour_updated(_new_hour : int):
 	%HourLabel.text = day.get_readable_hour()

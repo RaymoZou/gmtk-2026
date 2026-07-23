@@ -1,12 +1,15 @@
+class_name InteractableTask
 extends Interactable
 
-@export var task : Task
+signal task_completed(task : Task)
+
+@export var task : Task # to be populated in the Inspector
 
 func _ready() -> void:
-    print("%s is ready" % name)
+	task = task.duplicate() # so we don't modify the original
+	print(task.status)
 
 func interact(_body: Node3D):
-    if task and task.status != Task.Status.COMPLETED:
-        print("task is now completed")
-        task.complete_task()
-        task_completed.emit(task)
+	if task and task.status != Task.Status.COMPLETED:
+		task.complete_task()
+		task_completed.emit(task)
