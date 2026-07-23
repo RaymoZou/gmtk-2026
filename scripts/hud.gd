@@ -12,6 +12,7 @@ func _ready() -> void:
 
 	var player := get_parent().get_node("Player")
 	player.focused_changed.connect(_on_focused_changed)
+	player.hold_progress.connect(_on_hold_progress)
 
 func _on_tasks_updated(tasks : Array[Task]) -> void:
 	for child in %Tasks.get_children():
@@ -52,3 +53,7 @@ func _on_focused_changed(text: String, visible: bool) -> void:
 	%InteractLabel.visible = visible
 	if visible:
 		%InteractLabel.text = "[E] " + text
+
+func _on_hold_progress(progress: float) -> void:
+	%HoldProgressBar.value = progress * 100.0
+	%HoldProgressBar.visible = progress > 0.0

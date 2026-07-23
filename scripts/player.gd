@@ -13,13 +13,18 @@ extends CharacterBody3D
 @export var min_pitch_deg: float = -89.0
 @export var max_pitch_deg: float = 89.0
 
+const HOLD_DURATION: float = 2.0
+
 signal focused_changed(text: String, visible: bool)
+signal hold_progress(progress: float)
 
 @onready var camera_pivot: Node3D = $Camera3D
 @onready var interact_ray: RayCast3D = $Camera3D/InteractRay
 
 var _pitch: float = 0.0
 var _focused_interactable: Interactable = null
+var _is_holding: bool = false
+var _hold_progress: float = 0.0
 
 
 func _ready() -> void:
@@ -35,7 +40,14 @@ func _unhandled_input(event: InputEvent) -> void:
 		)
 
 	if event.is_action_pressed("interact") and _focused_interactable and _focused_interactable.can_interact:
-		_focused_interactable.interact(self)
+		_is_holding = true
+		_hold_progress = 0.0
+		hold_progress.emit(0.0)
+
+	if event.is_action_released("interact") and _is_holding:
+		_is_holding = false
+		_hold_progress = 0.0
+		hold_progress.emit(0.0)
 
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		rotate_y(-event.relative.x * mouse_sensitivity)
@@ -69,7 +81,22 @@ func _physics_process(delta: float) -> void:
 	_update_focused()
 
 
+func _process(delta: float) -> void:
+	if _is_holding:
+		if _focused_interactable and _focused_interactable.can_interact:
+			_hold_progress = min(_hold_progress + delta / HOLD_DURATION, 1.0)
+			hold_progress.emit(_hold_progress)
 
+			# finished holding
+			if _hold_progress >= 1.0:
+				_focused_interactable.interact(self)
+				_is_holding = false
+				_hold_progress = 0.0
+				hold_progress.emit(0.0)
+		else:
+			_is_holding = false
+			_hold_progress = 0.0
+			hold_progress.emit(0.0)
 
 func _update_focused() -> void:
 	var collider = interact_ray.get_collider()
