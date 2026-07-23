@@ -1,8 +1,11 @@
 class_name Task
 extends Resource
 
-enum Status { INCOMPLETE, COMPLETED }
+enum Status { INCOMPLETE, COMPLETED, FAILED }
 
 @export var description: String
-@export var deadline: int = 17 #the hour at which this task must be completed
+@export var deadline: int = 17
 var status : Status = Status.INCOMPLETE
+
+func complete_task() -> void:
+	status = Status.COMPLETED
