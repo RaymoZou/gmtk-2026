@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://desut7j5xwmkc" path="res://assets/Office Pack-glb/Small Stack of Paper.glb" id="1_ldlei"]
 [ext_resource type="Script" uid="uid://c525tqwp4kov5" path="res://scripts/interactable_task.gd" id="1_vas6c"]
 [ext_resource type="Script" uid="uid://c863aj41u3h0h" path="res://scripts/task.gd" id="2_cbjgq"]
+[ext_resource type="AudioStream" uid="uid://b4ut26ovgv3d" path="res://sfx/paper_scribbling.wav" id="3_hc6lj"]
 
 [sub_resource type="Resource" id="Resource_jhmja"]
 script = ExtResource("2_cbjgq")
@@ -15,9 +16,12 @@ size = Vector3(0.44384766, 0.12084961, 0.35858154)
 [node name="Paper" type="Area3D" unique_id=1954391086]
 script = ExtResource("1_vas6c")
 task = SubResource("Resource_jhmja")
+sfx = ExtResource("3_hc6lj")
 
 [node name="Small Stack of Paper" parent="." unique_id=1859986365 instance=ExtResource("1_ldlei")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=292109052]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.013916016, 0.0013427734, -0.00039672852)
 shape = SubResource("BoxShape3D_ldlei")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1584904867]

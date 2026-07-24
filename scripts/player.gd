@@ -40,11 +40,14 @@ func _unhandled_input(event: InputEvent) -> void:
 		)
 
 	if event.is_action_pressed("interact") and _focused_interactable and _focused_interactable.can_interact:
+		_focused_interactable.is_interacting = true
 		_is_holding = true
 		_hold_progress = 0.0
 		hold_progress.emit(0.0)
 
 	if event.is_action_released("interact") and _is_holding:
+		if _focused_interactable:
+			_focused_interactable.is_interacting = false
 		_is_holding = false
 		_hold_progress = 0.0
 		hold_progress.emit(0.0)
@@ -89,6 +92,7 @@ func _process(delta: float) -> void:
 
 			# finished holding
 			if _hold_progress >= 1.0:
+				_focused_interactable.is_interacting = false
 				_focused_interactable.interact(self)
 				_is_holding = false
 				_hold_progress = 0.0

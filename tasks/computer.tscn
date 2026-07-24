@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://c525tqwp4kov5" path="res://scripts/interactable_task.gd" id="1_8pqrt"]
 [ext_resource type="PackedScene" uid="uid://bvfkuhgwl0yct" path="res://assets/Office Pack-glb/Computer.glb" id="1_om4aa"]
 [ext_resource type="Script" uid="uid://c863aj41u3h0h" path="res://scripts/task.gd" id="2_7ikar"]
+[ext_resource type="AudioStream" uid="uid://cqg8f6pej2l87" path="res://sfx/keyboard_typing.wav" id="3_ngusg"]
 
 [sub_resource type="Resource" id="Resource_tjrug"]
 script = ExtResource("2_7ikar")
@@ -14,6 +15,7 @@ metadata/_custom_type_script = "uid://c863aj41u3h0h"
 [node name="Computer" type="Area3D" unique_id=233472860]
 script = ExtResource("1_8pqrt")
 task = SubResource("Resource_tjrug")
+sfx = ExtResource("3_ngusg")
 
 [node name="Computer" parent="." unique_id=1157794066 instance=ExtResource("1_om4aa")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
@@ -21,3 +23,5 @@ transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1372774818]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15288034, 0.34969106, 0)
 shape = SubResource("BoxShape3D_ub8u7")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1196836356]
