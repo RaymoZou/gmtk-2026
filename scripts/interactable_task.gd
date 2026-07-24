@@ -15,5 +15,13 @@ func _ready() -> void:
 func interact(_body: Node3D):
 	if task and task.status != Task.Status.COMPLETED:
 		task.complete_task()
+		is_interacting = false
+		sound_player.stop()
 		task_completed.emit(task)
-		sound_player.play()
+
+func _process(_delta: float) -> void:
+	if is_interacting:
+		if not sound_player.playing:
+			sound_player.play()
+	elif sound_player.playing:
+		sound_player.stop()
