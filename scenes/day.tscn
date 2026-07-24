@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://c863aj41u3h0h" path="res://scripts/task.gd" id="9_c2xg6"]
 [ext_resource type="PackedScene" uid="uid://vwabtb203spp" path="res://scenes/task_manager.tscn" id="9_g2qlc"]
 [ext_resource type="PackedScene" uid="uid://dcfw70ae68kgx" path="res://tasks/phone.tscn" id="11_uxlcc"]
+[ext_resource type="PackedScene" uid="uid://ceva32c2ertts" path="res://tasks/filing_cabinet.tscn" id="12_ksuo4"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_vas6c"]
 
@@ -73,8 +74,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.160553, 0.8709307, 1.974609
 task = SubResource("Resource_uxlcc")
 
 [node name="TaskManager" parent="." unique_id=1447460709 node_paths=PackedStringArray("interactable_tasks") instance=ExtResource("9_g2qlc")]
-interactable_tasks = [NodePath("../Computer"), NodePath("../Phone"), NodePath("../Desk/Printer"), NodePath("../Desk/Paper")]
+interactable_tasks = [NodePath("../Computer"), NodePath("../Phone"), NodePath("../Desk/Printer"), NodePath("../Desk/Paper"), NodePath("../FilingCabinet")]
 
 [node name="Phone" parent="." unique_id=1308402550 instance=ExtResource("11_uxlcc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3767776, 1.0199566, 2.483971)
 task = SubResource("Resource_ksuo4")
+
+[node name="FilingCabinet" parent="." unique_id=2046067264 instance=ExtResource("12_ksuo4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4685669, 0.017260432, 4.1413574)
