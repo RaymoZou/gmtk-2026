@@ -32,4 +32,5 @@ STAMINA
 
 Assets:
 The Office Pack by dook [CC-BY] via Poly Pizza
-
+printer 2 by drdock -- https://freesound.org/s/828423/ -- License: Creative Commons 0
+06_keyboard, typing.WAV by 16F_Panska_TisonD -- https://freesound.org/s/499175/ -- License: Creative Commons 0

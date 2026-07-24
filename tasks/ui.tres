@@ -1,9 +1,12 @@
 [gd_resource type="Theme" format=3 uid="uid://dwsvceof7d8vm"]
 
+[ext_resource type="FontFile" uid="uid://con1xf1y3c04w" path="res://source-sans-pro/SourceSansPro-Semibold.otf" id="1_1rx06"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4u2vk"]
 bg_color = Color(0, 0.6, 1, 1)
 
 [resource]
 Label/font_sizes/font_size = 24
+Label/fonts/font = ExtResource("1_1rx06")
 ProgressBar/font_sizes/font_size = 27
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_4u2vk")
