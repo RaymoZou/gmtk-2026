@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cgrig7c8oslyv" path="res://tasks/computer.tscn" id="8_wl7my"]
 [ext_resource type="Script" uid="uid://c863aj41u3h0h" path="res://scripts/task.gd" id="9_c2xg6"]
 [ext_resource type="PackedScene" uid="uid://vwabtb203spp" path="res://scenes/task_manager.tscn" id="9_g2qlc"]
+[ext_resource type="PackedScene" uid="uid://dcfw70ae68kgx" path="res://tasks/phone.tscn" id="11_uxlcc"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_vas6c"]
 
@@ -19,6 +20,11 @@ size = Vector2(50, 50)
 [sub_resource type="Resource" id="Resource_uxlcc"]
 script = ExtResource("9_c2xg6")
 description = "Email the reports"
+metadata/_custom_type_script = "uid://c863aj41u3h0h"
+
+[sub_resource type="Resource" id="Resource_ksuo4"]
+script = ExtResource("9_c2xg6")
+description = "Phone potential clients"
 metadata/_custom_type_script = "uid://c863aj41u3h0h"
 
 [node name="Main" type="Node3D" unique_id=434324966]
@@ -67,4 +73,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.160553, 0.8709307, 1.974609
 task = SubResource("Resource_uxlcc")
 
 [node name="TaskManager" parent="." unique_id=1447460709 node_paths=PackedStringArray("interactable_tasks") instance=ExtResource("9_g2qlc")]
-interactable_tasks = [NodePath("../Computer"), NodePath("../Desk/Printer"), NodePath("../Desk/Paper")]
+interactable_tasks = [NodePath("../Computer"), NodePath("../Phone"), NodePath("../Desk/Printer"), NodePath("../Desk/Paper")]
+
+[node name="Phone" parent="." unique_id=1308402550 instance=ExtResource("11_uxlcc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3767776, 1.0199566, 2.483971)
+task = SubResource("Resource_ksuo4")
