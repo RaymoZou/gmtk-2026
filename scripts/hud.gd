@@ -2,6 +2,7 @@ extends CanvasLayer
 
 @onready var day : Day = get_parent()
 @onready var animation_player : AnimationPlayer = $AnimationPlayer
+var task_item_ui : PackedScene = preload("res://ui/TaskItemUI.tscn")
 @export var task_manager : TaskManager
 
 # we want the actual clock to start at 9am
@@ -19,13 +20,12 @@ func _ready() -> void:
 	player.hold_progress.connect(_on_hold_progress)
 
 
-
 func _on_tasks_updated(tasks : Array[Task]) -> void:
 	for child in %Tasks.get_children():
 		child.queue_free()
 
 	for task in tasks:
-		var label := Label.new()
+		var label : RichTextLabel = task_item_ui.instantiate()
 		match task.status:
 			Task.Status.COMPLETED:
 				label.text = "[x] " + task.description
@@ -45,9 +45,10 @@ func _button_pressed() -> void:
 
 # new_hour will be between 9 and 17
 func _on_hour_updated(new_hour : int):
-	%HourLabel.text = day.get_readable_hour()
+	%HourLabel.text = "%s (%d hours remaining)" % [day.get_readable_hour(), day.get_remaining_hours()]
 	%HourProgressBar.value = new_hour - OFFSET
-	animation_player.play("hour_changed")
+	# TODO: enable animation - it looks weird so disabled for now
+	# animation_player.play("hour_changed")
 
 func _on_day_ended(success: bool):
 	%DayOverMenu.show()

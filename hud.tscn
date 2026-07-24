@@ -9,7 +9,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Control/VBoxContainer/HourLabel:theme_override_font_sizes/font_size")
+tracks/0/path = NodePath("Control/MarginContainer/VBoxContainer/HourLabel:theme_override_font_sizes/font_size")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -25,14 +25,14 @@ length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Control/VBoxContainer/HourLabel:theme_override_font_sizes/font_size")
-tracks/0/interp = 1
+tracks/0/path = NodePath("Control/MarginContainer/VBoxContainer/HourLabel:theme_override_font_sizes/normal_font_size")
+tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.06666666, 0.16666667),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [42, 50, 42]
+"values": [24, 32, 24]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8sq4i"]
@@ -54,16 +54,17 @@ grow_vertical = 2
 mouse_filter = 2
 theme = ExtResource("2_64ctp")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=491679957]
+[node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=1551960289]
 layout_mode = 0
-offset_right = 216.0
-offset_bottom = 247.0
-alignment = 1
+offset_right = 503.0
+offset_bottom = 304.0
 
-[node name="HourProgressBar" type="TextureProgressBar" parent="Control/VBoxContainer" unique_id=941786603]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer" unique_id=491679957]
+layout_mode = 2
+
+[node name="HourProgressBar" type="TextureProgressBar" parent="Control/MarginContainer/VBoxContainer" unique_id=941786603]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 4
 max_value = 12.0
 value = 9.0
 fill_mode = 4
@@ -72,22 +73,30 @@ texture_under = ExtResource("3_8sq4i")
 texture_progress = ExtResource("3_8sq4i")
 tint_progress = Color(0, 0.5254902, 1, 1)
 
-[node name="HourLabel" type="Label" parent="Control/VBoxContainer" unique_id=290494461]
+[node name="HourLabel" type="RichTextLabel" parent="Control/MarginContainer/VBoxContainer" unique_id=249009696]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/normal_font_size = 24
 text = "CURRENT_HOUR"
+fit_content = true
 
-[node name="Tasks" type="VBoxContainer" parent="Control" unique_id=2051675502]
-unique_name_in_owner = true
+[node name="TaskContainer" type="Panel" parent="Control" unique_id=927753372]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -249.0
-offset_bottom = 283.0
+offset_left = -275.0
+offset_bottom = 438.0
 grow_horizontal = 0
+
+[node name="Tasks" type="VBoxContainer" parent="Control/TaskContainer" unique_id=2051675502]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="AllDoneLabel" type="Label" parent="Control" unique_id=1804921019]
 unique_name_in_owner = true
@@ -123,12 +132,18 @@ offset_bottom = 172.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="GridContainer" type="GridContainer" parent="Control/DayOverMenu" unique_id=197933024]
-layout_mode = 0
-offset_right = 541.5
-offset_bottom = 345.5
+[node name="MarginContainer" type="MarginContainer" parent="Control/DayOverMenu" unique_id=1457571494]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="DayOverLabel" type="Label" parent="Control/DayOverMenu/GridContainer" unique_id=1877768613]
+[node name="GridContainer" type="GridContainer" parent="Control/DayOverMenu/MarginContainer" unique_id=197933024]
+layout_mode = 2
+
+[node name="DayOverLabel" type="Label" parent="Control/DayOverMenu/MarginContainer/GridContainer" unique_id=1877768613]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -138,7 +153,7 @@ theme_override_constants/outline_size = 4
 text = "RESULT"
 horizontal_alignment = 1
 
-[node name="RestartButton" type="Button" parent="Control/DayOverMenu/GridContainer" unique_id=16259029]
+[node name="RestartButton" type="Button" parent="Control/DayOverMenu/MarginContainer/GridContainer" unique_id=16259029]
 unique_name_in_owner = true
 layout_mode = 2
 text = "NEXT DAY"
