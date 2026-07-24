@@ -33,6 +33,9 @@ func _on_time_out():
 	if current_hour == ending_hour:
 		end_day()
 
+func get_remaining_hours() -> int:
+	return ending_hour - current_hour	
+
 func get_readable_hour() -> String:
 	if current_hour < 12:
 		return "%d:00 AM" % current_hour

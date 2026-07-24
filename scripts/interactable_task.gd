@@ -7,8 +7,10 @@ signal task_completed(task : Task)
 @export var sfx : Resource # to be populated in the Inspector
 @onready var sound_player: AudioStreamPlayer3D = $AudioStreamPlayer3D
 
-func _ready() -> void:
+func _enter_tree() -> void:
 	task = task.duplicate() # so we don't modify the original
+
+func _ready() -> void:
 	interact_text = task.description
 	sound_player.stream = sfx
 

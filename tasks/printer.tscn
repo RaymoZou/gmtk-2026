@@ -2,19 +2,14 @@
 
 [ext_resource type="PackedScene" uid="uid://svhuo14go068" path="res://assets/Office Pack-glb/Printer.glb" id="1_4lrxx"]
 [ext_resource type="Script" uid="uid://c525tqwp4kov5" path="res://scripts/interactable_task.gd" id="1_kdvce"]
-[ext_resource type="Script" uid="uid://c863aj41u3h0h" path="res://scripts/task.gd" id="2_jf8il"]
+[ext_resource type="Resource" uid="uid://b064a7fxveuhi" path="res://tasks/print.tres" id="2_qqbw4"]
 [ext_resource type="AudioStream" uid="uid://dkl4a6m5lx5f0" path="res://sfx/printer.wav" id="3_mu7cj"]
-
-[sub_resource type="Resource" id="Resource_mu7cj"]
-script = ExtResource("2_jf8il")
-description = "Print the reports"
-metadata/_custom_type_script = "uid://c863aj41u3h0h"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ub8u7"]
 
 [node name="Printer" type="Area3D" unique_id=1273770118]
 script = ExtResource("1_kdvce")
-task = SubResource("Resource_mu7cj")
+task = ExtResource("2_qqbw4")
 sfx = ExtResource("3_mu7cj")
 
 [node name="Root Scene" parent="." unique_id=860819043 instance=ExtResource("1_4lrxx")]

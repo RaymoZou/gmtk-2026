@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c32jgg27otcdl" path="res://scripts/day.gd" id="1_dr5ms"]
 [ext_resource type="PackedScene" uid="uid://bk3rtxa1ypj1p" path="res://scenes/player.tscn" id="2_c2xg6"]
+[ext_resource type="Texture2D" uid="uid://ialckdxqxix8" path="res://carpet_texture.jpg" id="2_ef4jv"]
 [ext_resource type="PackedScene" uid="uid://mkjauhtsnxga" path="res://assets/Office Pack-glb/Desk.glb" id="3_uxlcc"]
 [ext_resource type="PackedScene" uid="uid://dbod4gtd2mw0g" path="res://tasks/printer.tscn" id="4_ksuo4"]
 [ext_resource type="PackedScene" uid="uid://cwjicqut73v5t" path="res://tasks/paper.tscn" id="5_ef4jv"]
@@ -10,35 +11,48 @@
 [ext_resource type="PackedScene" uid="uid://cgrig7c8oslyv" path="res://tasks/computer.tscn" id="8_wl7my"]
 [ext_resource type="Script" uid="uid://c863aj41u3h0h" path="res://scripts/task.gd" id="9_c2xg6"]
 [ext_resource type="PackedScene" uid="uid://vwabtb203spp" path="res://scenes/task_manager.tscn" id="9_g2qlc"]
+[ext_resource type="PackedScene" uid="uid://dcfw70ae68kgx" path="res://tasks/phone.tscn" id="11_uxlcc"]
+[ext_resource type="PackedScene" uid="uid://ceva32c2ertts" path="res://tasks/filing_cabinet.tscn" id="12_ksuo4"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_vas6c"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_jyhfs"]
+lightmap_size_hint = Vector2i(252, 252)
 size = Vector2(50, 50)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2iobs"]
+albedo_texture = ExtResource("2_ef4jv")
+uv1_scale = Vector3(12, 12, 12)
 
 [sub_resource type="Resource" id="Resource_uxlcc"]
 script = ExtResource("9_c2xg6")
 description = "Email the reports"
 metadata/_custom_type_script = "uid://c863aj41u3h0h"
 
+[sub_resource type="Resource" id="Resource_ksuo4"]
+script = ExtResource("9_c2xg6")
+description = "Phone potential clients"
+metadata/_custom_type_script = "uid://c863aj41u3h0h"
+
 [node name="Main" type="Node3D" unique_id=434324966]
 script = ExtResource("1_dr5ms")
-SECONDS_PER_HOUR = 5
+SECONDS_PER_HOUR = 10
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=2112887880]
+[node name="Floor" type="StaticBody3D" parent="." unique_id=2112887880]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1726195428]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=1726195428]
 shape = SubResource("WorldBoundaryShape3D_vas6c")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=1002222240]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=1002222240]
 transform = Transform3D(0.33738083, 0, 0, 0, 0.33738083, 0, 0, 0, 0.33738083, 0, 0, 0)
 mesh = SubResource("PlaneMesh_jyhfs")
+surface_material_override/0 = SubResource("StandardMaterial3D_2iobs")
 
 [node name="Player" parent="." unique_id=239933089 instance=ExtResource("2_c2xg6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4322727, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.84889865, 5.8138123)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1313746181]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9403095, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9449463, 5.5097675, 3.467163)
 omni_range = 8.135
 omni_attenuation = -0.22
 
@@ -48,23 +62,49 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.529827, 0.14915729)
 [node name="Desk" parent="." unique_id=677113064 instance=ExtResource("3_uxlcc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9407873, 2.7196844e-08, 1.9638088)
 
-[node name="Printer" parent="Desk" unique_id=1273770118 instance=ExtResource("4_ksuo4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.153573, 1.1341118, -3.059049)
-
-[node name="Paper" parent="Desk" unique_id=1954391086 instance=ExtResource("5_ef4jv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.1873407, 1.1560067, -3.1747463)
-
 [node name="Timer" type="Timer" parent="." unique_id=278046609]
 
 [node name="Hud" parent="." unique_id=688769851 node_paths=PackedStringArray("task_manager") instance=ExtResource("6_2iobs")]
 task_manager = NodePath("../TaskManager")
 
 [node name="Table" parent="." unique_id=1337860143 instance=ExtResource("7_i3fvo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.6067505, 0.6916733, -1.1651001)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.449753, 0.6916733, 2.7332153)
+
+[node name="Printer" parent="Table" unique_id=1273770118 instance=ExtResource("4_ksuo4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.51239014, 0.44243848, 0.06985998)
+
+[node name="Paper" parent="Table" unique_id=1954391086 instance=ExtResource("5_ef4jv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.52137756, 0.46433342, -0.045837402)
 
 [node name="Computer" parent="." unique_id=233472860 instance=ExtResource("8_wl7my")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.160553, 0.8709307, 1.9746094)
 task = SubResource("Resource_uxlcc")
 
 [node name="TaskManager" parent="." unique_id=1447460709 node_paths=PackedStringArray("interactable_tasks") instance=ExtResource("9_g2qlc")]
-interactable_tasks = [NodePath("../Computer"), NodePath("../Desk/Printer"), NodePath("../Desk/Paper")]
+interactable_tasks = [NodePath("../Computer"), NodePath("../Phone"), NodePath("../Table/Printer"), NodePath("../Table/Paper"), NodePath("../FilingCabinet")]
+
+[node name="Phone" parent="." unique_id=1308402550 instance=ExtResource("11_uxlcc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3336868, 1.0199566, 2.1048207)
+task = SubResource("Resource_ksuo4")
+
+[node name="FilingCabinet" parent="." unique_id=2046067264 instance=ExtResource("12_ksuo4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4685669, 0.017260432, 3.1413574)
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=831289903]
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1780857045]
+transform = Transform3D(1, 0, 0, 0, 4.5, 0, 0, 0, 1, 8, 2, 0)
+size = Vector3(1, 1, 17)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D" unique_id=833415804]
+transform = Transform3D(1, 0, 0, 0, 4.5, 0, 0, 0, 1, -8.072296, 2, 0)
+size = Vector3(1, 1, 17)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D" unique_id=849265370]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 4.5, 0, 1, 0, -4.371139e-08, -0.16040039, 2.140503, 8.303101)
+size = Vector3(1, 1, 17)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1731364280]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 4.5, 0, 1, 0, -4.371139e-08, -0.16040039, 2.140503, -1.7146037)
+size = Vector3(1, 1, 17)

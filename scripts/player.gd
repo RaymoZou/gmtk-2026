@@ -20,6 +20,7 @@ signal hold_progress(progress: float)
 
 @onready var camera_pivot: Node3D = $Camera3D
 @onready var interact_ray: RayCast3D = $Camera3D/InteractRay
+@onready var day : Day = get_parent()
 
 var _pitch: float = 0.0
 var _focused_interactable: Interactable = null
@@ -29,7 +30,12 @@ var _hold_progress: float = 0.0
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	day.day_ended.connect(_on_day_ended)
 
+
+func _on_day_ended(_success: bool):
+	print("day has ended")
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
