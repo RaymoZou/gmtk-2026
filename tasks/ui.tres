@@ -6,6 +6,7 @@
 bg_color = Color(0, 0.6, 1, 1)
 
 [resource]
+default_font = ExtResource("1_1rx06")
 Label/font_sizes/font_size = 24
 Label/fonts/font = ExtResource("1_1rx06")
 ProgressBar/font_sizes/font_size = 27
