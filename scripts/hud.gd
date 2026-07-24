@@ -4,6 +4,9 @@ extends CanvasLayer
 @onready var animation_player : AnimationPlayer = $AnimationPlayer
 @export var task_manager : TaskManager
 
+# we want the actual clock to start at 9am
+const OFFSET : int = 9
+
 func _ready() -> void:
 	day.hour_updated.connect(_on_hour_updated)
 	day.day_ended.connect(_on_day_ended)
@@ -40,8 +43,10 @@ func _on_all_tasks_completed() -> void:
 func _button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/day.tscn")
 
-func _on_hour_updated(_new_hour : int):
+# new_hour will be between 9 and 17
+func _on_hour_updated(new_hour : int):
 	%HourLabel.text = day.get_readable_hour()
+	%HourProgressBar.value = new_hour - OFFSET
 	animation_player.play("hour_changed")
 
 func _on_day_ended(success: bool):
