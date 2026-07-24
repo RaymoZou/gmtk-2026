@@ -52,10 +52,10 @@ func _on_hour_updated(new_hour : int):
 func _on_day_ended(success: bool):
 	%DayOverMenu.show()
 	if success:
-		%DayOverLabel.text = "All tasks completed!"
+		%DayOverLabel.text = "You survive to work another day..."
 		%DayOverLabel.modulate = Color.GREEN
 	else:
-		%DayOverLabel.text = "GAME OVER"
+		%DayOverLabel.text = "GAME OVER :("
 		%DayOverLabel.modulate = Color.RED
 
 func _on_focused_changed(text: String, visible: bool) -> void:

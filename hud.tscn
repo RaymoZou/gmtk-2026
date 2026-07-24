@@ -107,34 +107,40 @@ theme_override_constants/outline_size = 4
 text = "All tasks complete! Wait until 5 PM."
 horizontal_alignment = 1
 
-[node name="DayOverMenu" type="Control" parent="Control" unique_id=343527039]
+[node name="DayOverMenu" type="Panel" parent="Control" unique_id=850487690]
 unique_name_in_owner = true
 visible = false
-anchors_preset = 0
-offset_left = 330.0
-offset_top = 141.0
-offset_right = 871.0
-offset_bottom = 486.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -270.5
+offset_top = -172.5
+offset_right = 270.5
+offset_bottom = 172.5
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="DayOverLabel" type="Label" parent="Control/DayOverMenu" unique_id=1877768613]
-unique_name_in_owner = true
+[node name="GridContainer" type="GridContainer" parent="Control/DayOverMenu" unique_id=197933024]
 layout_mode = 0
-offset_left = 40.0
-offset_top = 40.0
-offset_right = 500.0
-offset_bottom = 80.0
+offset_right = 541.5
+offset_bottom = 345.5
+
+[node name="DayOverLabel" type="Label" parent="Control/DayOverMenu/GridContainer" unique_id=1877768613]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
 text = "RESULT"
+horizontal_alignment = 1
 
-[node name="RestartButton" type="Button" parent="Control/DayOverMenu" unique_id=16259029]
+[node name="RestartButton" type="Button" parent="Control/DayOverMenu/GridContainer" unique_id=16259029]
 unique_name_in_owner = true
-layout_mode = 0
-offset_left = 160.0
-offset_top = 100.0
-offset_right = 380.0
-offset_bottom = 224.0
+layout_mode = 2
 text = "NEXT DAY"
 
 [node name="HoldProgressBar" type="ProgressBar" parent="Control" unique_id=1315343181]
