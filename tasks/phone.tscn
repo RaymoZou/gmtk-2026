@@ -20,7 +20,7 @@ size = Vector3(1.1451416, 0.9033203, 0.3149414)
 
 [node name="Phone" type="Area3D" unique_id=233472860]
 script = ExtResource("1_47nm8")
-task = ExtResource("2_47nm8")
+task_instance = ExtResource("2_47nm8")
 sfx = SubResource("AudioStreamWAV_0gtbr")
 
 [node name="Root Scene" parent="." unique_id=1230847368 instance=ExtResource("4_47nm8")]

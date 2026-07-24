@@ -11,9 +11,18 @@ var is_tasks_completed : bool = false
 func _ready() -> void:
 	for interactable : InteractableTask in interactable_tasks:
 		interactable.task_completed.connect(_on_interactable_task_completed)
-		curr_tasks.push_back(interactable.task)
+
+		# choose x from interactable_tasks
+		# from x, choose y repetitions
+		for instance in interactable.task_instances:
+			curr_tasks.push_back(instance)
+
+		# curr_tasks.push_back(get_random_task())
 
 	tasks_updated.emit(curr_tasks)
+
+func get_random_task() -> InteractableTask:
+	return interactable_tasks.pick_random()
 
 func is_incomplete(task: Task) -> bool:
 	return task.status == Task.Status.INCOMPLETE
