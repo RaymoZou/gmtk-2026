@@ -346,8 +346,8 @@ mesh = SubResource("ArrayMesh_b3myi")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Coffee Machine by J-Toastie - EWVe4TaOiB/Machine_Cube_001/StaticBody3D" unique_id=1063998247]
 shape = SubResource("ConcavePolygonShape3D_f1swo")
 
-[node name="Jug_Cylinder_003" type="MeshInstance3D" parent="Coffee Machine by J-Toastie - EWVe4TaOiB" unique_id=9284962]
-visible = false
+[node name="Jug" type="MeshInstance3D" parent="Coffee Machine by J-Toastie - EWVe4TaOiB" unique_id=9284962]
+unique_name_in_owner = true
 mesh = SubResource("ArrayMesh_kg7cr")
 
 [node name="Cube" type="MeshInstance3D" parent="Coffee Machine by J-Toastie - EWVe4TaOiB" unique_id=805408826]

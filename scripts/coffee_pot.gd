@@ -13,4 +13,5 @@ func interact(player: Player):
 	print("Speed has been upgraded for %s" % player.name)
 	player.hold_duration /= EFFICIENCY_FACTOR
 	print("Player hold duration is now %s" % player.hold_duration)
+	%Jug.hide()
 	can_interact = false
