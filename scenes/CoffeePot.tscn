@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://ngh0wtpogjk0"]
+
+[ext_resource type="Script" uid="uid://dpjwkgs1r765e" path="res://scripts/coffee_pot.gd" id="1_1br4b"]
+[ext_resource type="PackedScene" uid="uid://bjxq8a5l82ypd" path="res://assets/Coffee Machine by J-Toastie - EWVe4TaOiB.glb" id="1_p4w1j"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ub8u7"]
+size = Vector3(1, 2.0117188, 1.802002)
+
+[node name="CoffeePot" type="Area3D" unique_id=2116925569]
+script = ExtResource("1_1br4b")
+
+[node name="Coffee Machine by J-Toastie - EWVe4TaOiB" parent="." unique_id=669821097 instance=ExtResource("1_p4w1j")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2088328026]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.90680873, -0.115356445)
+shape = SubResource("BoxShape3D_ub8u7")

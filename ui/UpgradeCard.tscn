@@ -1,25 +1,21 @@
 [gd_scene format=3 uid="uid://cw0xe50v4777d"]
 
-[ext_resource type="Theme" uid="uid://dwsvceof7d8vm" path="res://tasks/ui.tres" id="1_21efk"]
-[ext_resource type="Script" uid="uid://dsmas2lhoh3nn" path="res://ui/LevelUpgrade.gd" id="2_2vflf"]
-[ext_resource type="Texture2D" uid="uid://w5kafc3luitw" path="res://icon.svg" id="2_b4aq0"]
-[ext_resource type="Resource" uid="uid://ggq7n4rb07x" path="res://upgrades/coffee_pot.tres" id="3_jkwq5"]
+[ext_resource type="Theme" uid="uid://dwsvceof7d8vm" path="res://tasks/ui.tres" id="1_7xyeg"]
+[ext_resource type="Script" uid="uid://dsmas2lhoh3nn" path="res://ui/LevelUpgrade.gd" id="2_joplb"]
+[ext_resource type="Texture2D" uid="uid://w5kafc3luitw" path="res://icon.svg" id="3_x8c3k"]
 
-[node name="LevelUpgradeCard" type="Panel" unique_id=474526542]
-anchors_preset = 8
-anchor_left = 0.5
+[node name="LevelUpgradeCard" type="Button" unique_id=348327315]
+custom_maximum_size = Vector2(300, 450)
+anchors_preset = 4
 anchor_top = 0.5
-anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -150.0
 offset_top = -225.0
-offset_right = 150.0
+offset_right = 300.0
 offset_bottom = 225.0
-grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_21efk")
-script = ExtResource("2_2vflf")
-upgrade_info = ExtResource("3_jkwq5")
+size_flags_horizontal = 3
+theme = ExtResource("1_7xyeg")
+script = ExtResource("2_joplb")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=756481040]
 layout_mode = 1
@@ -38,6 +34,7 @@ unique_name_in_owner = true
 clip_contents = false
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 1
 theme_override_font_sizes/bold_font_size = 28
 bbcode_enabled = true
 text = "[b]UPGRADE_NAME[/b]"
@@ -47,13 +44,14 @@ horizontal_alignment = 1
 [node name="Icon" type="TextureRect" parent="MarginContainer/GridContainer" unique_id=1090739061]
 unique_name_in_owner = true
 layout_mode = 2
-texture = ExtResource("2_b4aq0")
+texture = ExtResource("3_x8c3k")
 stretch_mode = 5
 
 [node name="Description" type="RichTextLabel" parent="MarginContainer/GridContainer" unique_id=1291390643]
 unique_name_in_owner = true
 clip_contents = false
 layout_mode = 2
+mouse_filter = 1
 bbcode_enabled = true
 text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi malesuada libero ex, ut hendrerit enim semper vitae."
 fit_content = true
@@ -63,13 +61,10 @@ horizontal_alignment = 1
 unique_name_in_owner = true
 clip_contents = false
 layout_mode = 2
+mouse_filter = 1
 theme_override_colors/default_color = Color(1, 1, 1, 0.79607844)
 theme_override_font_sizes/italics_font_size = 12
 bbcode_enabled = true
 text = "[i]\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi malesuada libero ex, ut hendrerit enim semper vitae.\"[/i]"
 fit_content = true
 horizontal_alignment = 1
-
-[node name="Button" type="Button" parent="MarginContainer/GridContainer" unique_id=388054618]
-layout_mode = 2
-text = "SELECT"

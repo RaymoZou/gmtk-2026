@@ -40,3 +40,4 @@ printer 2 by drdock -- https://freesound.org/s/828423/ -- License: Creative Comm
 - https://www.textures.com/download/plain-carpet-b-pbr00972/147269 (Carpet texture)
 - "Coffee Pot Icon" by Delapouite (https://game-icons.net/1x1/delapouite/coffee-pot.html) 
 is licensed under CC BY 3.0 (https://creativecommons.org/licenses/by/3.0/)
+- Coffee Machine by J-Toastie [CC-BY] (https://creativecommons.org/licenses/by/3.0/) via Poly Pizza (https://poly.pizza/m/EWVe4TaOiB)

@@ -7,4 +7,4 @@ extends Area3D
 var is_interacting : bool = false
 
 @abstract
-func interact(_body: Node3D)
+func interact(player: Player)

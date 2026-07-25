@@ -7,13 +7,12 @@ extends CharacterBody3D
 @export var jump_velocity: float = 4.5
 @export var gravity: float = 9.8
 @export var move_speed: float = 2
+@export var hold_duration: float = 2 # how long to hold to complete a task
 
 @export_group("Mouse Look")
 @export var mouse_sensitivity: float = 0.003
 @export var min_pitch_deg: float = -89.0
 @export var max_pitch_deg: float = 89.0
-
-const HOLD_DURATION: float = 2.0
 
 signal focused_changed(text: String, visible: bool)
 signal hold_progress(progress: float)
@@ -93,7 +92,7 @@ func _physics_process(delta: float) -> void:
 func _process(delta: float) -> void:
 	if _is_holding:
 		if _focused_interactable and _focused_interactable.can_interact:
-			_hold_progress = min(_hold_progress + delta / HOLD_DURATION, 1.0)
+			_hold_progress = min(_hold_progress + delta / hold_duration, 1.0)
 			hold_progress.emit(_hold_progress)
 
 			# finished holding
