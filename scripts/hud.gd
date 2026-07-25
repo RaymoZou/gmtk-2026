@@ -74,18 +74,11 @@ func _on_tasks_updated(new_tasks : Array[Task]) -> void:
 func _on_all_tasks_completed() -> void:
 	%AllDoneLabel.show()
 
-# if energized then show the status
-# otherwise remove it
 func _on_energized_changed(is_energized : bool) -> void:
 	if is_energized:
 		%EnergizedIcon.show()
 	else:
 		%EnergizedIcon.hide()
-	# var energized_svg : Texture2D = preload("res://assets/coffee-cup.svg")
-	# var texture_rect : TextureRect = TextureRect.new()
-	# texture_rect.texture = energized_svg
-	# %ActivePerksContainer.add_child(texture_rect)
-	# %ActivePerksContainer.remove_child(texture_rect)
 
 # new_hour will be between 9 and 17
 func _on_hour_updated(new_hour : int):
@@ -100,7 +93,7 @@ func _on_day_ended(success: bool):
 		%DayOverLabel.text = "You survive to work another day..."
 		%DayOverLabel.modulate = Color.GREEN
 	else:
-		%DayOverLabel.text = "GAME OVER :("
+		%DayOverLabel.text = "HR would like to have a word with you in their office..."
 		%DayOverLabel.modulate = Color.RED
 
 func _on_focused_changed(text: String, visible: bool) -> void:
