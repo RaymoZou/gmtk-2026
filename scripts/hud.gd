@@ -28,6 +28,12 @@ func _ready() -> void:
 	player.hold_progress.connect(_on_hold_progress)
 	player.energized_changed.connect(_on_energized_changed)
 
+	# check for Speedwalk upgrade
+	var speedwalk_upgrade : LevelUpgradeInfo = preload("res://upgrades/speedwalk.tres")
+	if speedwalk_upgrade in GameManager.chosen_upgrades:
+		%SpeedwalkIcon.show()	
+
+
 	var num_options : int = min(GameManager.available_options.size(), MAX_OPTIONS)
 	for i in num_options:
 		var random_upgrade : LevelUpgradeInfo = GameManager.available_options.pick_random()

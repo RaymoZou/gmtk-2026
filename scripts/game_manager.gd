@@ -4,6 +4,7 @@ extends Node
 @export var available_options : Array[LevelUpgradeInfo] = [
 	preload("res://upgrades/coffee_pot.tres"),
 	preload("res://upgrades/overtime.tres"),
+	preload("res://upgrades/speedwalk.tres")
 ]
 
 @export var chosen_upgrades : Array[LevelUpgradeInfo] = [

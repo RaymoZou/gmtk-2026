@@ -4,6 +4,7 @@
 [ext_resource type="Theme" uid="uid://dwsvceof7d8vm" path="res://tasks/ui.tres" id="2_64ctp"]
 [ext_resource type="Texture2D" uid="uid://c2jkgwjudedxr" path="res://clock.svg" id="3_8sq4i"]
 [ext_resource type="Texture2D" uid="uid://drq8axvteu0qs" path="res://assets/coffee-cup.svg" id="4_7ihmi"]
+[ext_resource type="Texture2D" uid="uid://5n6kxnvgf2pw" path="res://assets/walk.svg" id="5_en2x2"]
 
 [sub_resource type="Animation" id="Animation_8sq4i"]
 length = 0.001
@@ -180,6 +181,15 @@ visible = false
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 texture = ExtResource("4_7ihmi")
+expand_mode = 1
+stretch_mode = 2
+
+[node name="SpeedwalkIcon" type="TextureRect" parent="Control/MarginContainer2/ActivePerksContainer" unique_id=1463264375]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+texture = ExtResource("5_en2x2")
 expand_mode = 1
 stretch_mode = 2
 
