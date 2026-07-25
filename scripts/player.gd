@@ -26,9 +26,17 @@ var _pitch: float = 0.0
 var _focused_interactable: Interactable = null
 var _is_holding: bool = false
 var _hold_progress: float = 0.0
+const SPEED_MULTIPLIER : float = 1.5 # for the Speedwalk Upgrade
 
 
 func _ready() -> void:
+
+	# check for Speedwalk Upgrade
+	var speedwalk_upgrade : LevelUpgradeInfo = preload("res://upgrades/speedwalk.tres")
+	if speedwalk_upgrade in GameManager.chosen_upgrades:
+		move_speed *= SPEED_MULTIPLIER
+		print("Speedwalk detected. Move speed is now %d" % move_speed)
+
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	day.day_ended.connect(_on_day_ended)
 
