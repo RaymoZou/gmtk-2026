@@ -12,6 +12,7 @@ bg_color = Color(0, 0.6, 1, 1)
 [resource]
 default_font = ExtResource("1_1rx06")
 GridContainer/constants/v_separation = 8
+HBoxContainer/constants/separation = 16
 Label/font_sizes/font_size = 24
 Label/fonts/font = ExtResource("1_1rx06")
 MarginContainer/constants/margin_bottom = 16

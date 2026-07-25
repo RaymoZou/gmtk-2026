@@ -3,10 +3,7 @@
 [ext_resource type="Script" uid="uid://cb7y7ycsn68bh" path="res://scripts/hud.gd" id="1_37p78"]
 [ext_resource type="Theme" uid="uid://dwsvceof7d8vm" path="res://tasks/ui.tres" id="2_64ctp"]
 [ext_resource type="Texture2D" uid="uid://c2jkgwjudedxr" path="res://clock.svg" id="3_8sq4i"]
-[ext_resource type="Resource" uid="uid://c15k68ctqoss5" path="res://upgrades/bar.tres" id="3_q43x7"]
-[ext_resource type="Resource" uid="uid://ggq7n4rb07x" path="res://upgrades/coffee_pot.tres" id="4_srpbi"]
-[ext_resource type="Script" uid="uid://de5gdp7og8pek" path="res://upgrades/level_upgrade_info.gd" id="5_q43x7"]
-[ext_resource type="Resource" uid="uid://ck454j654ipqm" path="res://upgrades/foo.tres" id="5_spcu4"]
+[ext_resource type="Texture2D" uid="uid://drq8axvteu0qs" path="res://assets/coffee-cup.svg" id="4_7ihmi"]
 
 [sub_resource type="Animation" id="Animation_8sq4i"]
 length = 0.001
@@ -47,7 +44,6 @@ _data = {
 
 [node name="Hud" type="CanvasLayer" unique_id=1197527564]
 script = ExtResource("1_37p78")
-available_options = Array[ExtResource("5_q43x7")]([ExtResource("3_q43x7"), ExtResource("4_srpbi"), ExtResource("5_spcu4")])
 
 [node name="Control" type="Control" parent="." unique_id=2123436431]
 layout_mode = 3
@@ -164,8 +160,28 @@ text = "INTERACT_TEXT"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1554617740]
-libraries/ = SubResource("AnimationLibrary_8sq4i")
+[node name="MarginContainer2" type="MarginContainer" parent="Control" unique_id=1875303702]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -160.0
+offset_right = 736.0
+grow_vertical = 0
+
+[node name="ActivePerksContainer" type="HBoxContainer" parent="Control/MarginContainer2" unique_id=1935075376]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("2_64ctp")
+
+[node name="EnergizedIcon" type="TextureRect" parent="Control/MarginContainer2/ActivePerksContainer" unique_id=513199426]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+texture = ExtResource("4_7ihmi")
+expand_mode = 1
+stretch_mode = 2
 
 [node name="DayOverMenu" type="Panel" parent="." unique_id=763436555]
 unique_name_in_owner = true
@@ -212,3 +228,6 @@ alignment = 1
 unique_name_in_owner = true
 layout_mode = 2
 text = "NEXT DAY"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1554617740]
+libraries/ = SubResource("AnimationLibrary_8sq4i")

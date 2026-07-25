@@ -22,9 +22,11 @@ func _ready() -> void:
 	task_manager.tasks_updated.connect(_on_tasks_updated)
 	task_manager.all_tasks_completed.connect(_on_all_tasks_completed)
 
+	# CONNECT PLAYER SIGNALS - NOTE: maybe move this to EventBus?
 	var player := get_parent().get_node("Player")
 	player.focused_changed.connect(_on_focused_changed)
 	player.hold_progress.connect(_on_hold_progress)
+	player.energized_changed.connect(_on_energized_changed)
 
 	var num_options : int = min(GameManager.available_options.size(), MAX_OPTIONS)
 	for i in num_options:
@@ -71,6 +73,19 @@ func _on_tasks_updated(new_tasks : Array[Task]) -> void:
 
 func _on_all_tasks_completed() -> void:
 	%AllDoneLabel.show()
+
+# if energized then show the status
+# otherwise remove it
+func _on_energized_changed(is_energized : bool) -> void:
+	if is_energized:
+		%EnergizedIcon.show()
+	else:
+		%EnergizedIcon.hide()
+	# var energized_svg : Texture2D = preload("res://assets/coffee-cup.svg")
+	# var texture_rect : TextureRect = TextureRect.new()
+	# texture_rect.texture = energized_svg
+	# %ActivePerksContainer.add_child(texture_rect)
+	# %ActivePerksContainer.remove_child(texture_rect)
 
 # new_hour will be between 9 and 17
 func _on_hour_updated(new_hour : int):

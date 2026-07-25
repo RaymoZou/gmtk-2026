@@ -1,6 +1,5 @@
 class_name Player
 extends CharacterBody3D
-
 @export_group("Movement")
 @export var walk_speed: float = 5.0
 @export var acceleration: float = 10.0
@@ -16,6 +15,8 @@ extends CharacterBody3D
 
 signal focused_changed(text: String, visible: bool)
 signal hold_progress(progress: float)
+# TODO: generalize energized_changed to status_changed
+signal energized_changed(status: bool) # status change after drinking coffee
 
 @onready var camera_pivot: Node3D = $Camera3D
 @onready var interact_ray: RayCast3D = $Camera3D/InteractRay
@@ -36,7 +37,9 @@ func _ready() -> void:
 func increase_productivity(hold_factor : float, duration: float):
 	var prev_hold : float = hold_duration
 	hold_duration = (hold_duration / hold_factor)
+	energized_changed.emit(true)
 	await get_tree().create_timer(duration).timeout
+	energized_changed.emit(false)
 	hold_duration = prev_hold
 
 
