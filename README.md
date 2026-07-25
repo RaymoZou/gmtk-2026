@@ -38,3 +38,5 @@ printer 2 by drdock -- https://freesound.org/s/828423/ -- License: Creative Comm
 - DTMF Dialing 4 by ElevatorFan2020 -- https://freesound.org/s/857830/ -- License: Creative Commons 0
 - rustling paper.wav by keweldog -- https://freesound.org/s/181774/ -- License: Creative Commons 0
 - https://www.textures.com/download/plain-carpet-b-pbr00972/147269 (Carpet texture)
+- "Coffee Pot Icon" by Delapouite (https://game-icons.net/1x1/delapouite/coffee-pot.html) 
+is licensed under CC BY 3.0 (https://creativecommons.org/licenses/by/3.0/)

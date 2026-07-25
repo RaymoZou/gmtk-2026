@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="LevelUpgradeInfo" format=3 uid="uid://ggq7n4rb07x"]
+
+[ext_resource type="Texture2D" uid="uid://c8rxoggwg8yyw" path="res://assets/coffee-pot.svg" id="1_nw88m"]
+[ext_resource type="Script" uid="uid://de5gdp7og8pek" path="res://upgrades/level_upgrade_info.gd" id="2_jjg8d"]
+
+[resource]
+script = ExtResource("2_jjg8d")
+title = "Coffee Pot"
+description = "Unlocks the coffee pot. Drinking coffee gives increased movement speed and task efficiency."
+funny_text = "\"That's an awfully hot coffee pot...\""
+icon = ExtResource("1_nw88m")
+metadata/_custom_type_script = "uid://de5gdp7og8pek"
