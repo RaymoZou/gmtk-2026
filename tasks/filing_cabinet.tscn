@@ -10,7 +10,7 @@ size = Vector3(0.3814087, 1.6758423, 0.8779297)
 
 [node name="FilingCabinet" type="Area3D" unique_id=233472860]
 script = ExtResource("1_ccn8i")
-task = ExtResource("2_ccn8i")
+task_instance = ExtResource("2_ccn8i")
 sfx = ExtResource("2_ovnws")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1372774818]

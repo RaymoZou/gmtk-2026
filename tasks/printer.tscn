@@ -9,7 +9,7 @@
 
 [node name="Printer" type="Area3D" unique_id=1273770118]
 script = ExtResource("1_kdvce")
-task = ExtResource("2_qqbw4")
+task_instance = ExtResource("2_qqbw4")
 sfx = ExtResource("3_mu7cj")
 
 [node name="Root Scene" parent="." unique_id=860819043 instance=ExtResource("1_4lrxx")]

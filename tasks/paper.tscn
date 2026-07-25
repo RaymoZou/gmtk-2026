@@ -10,7 +10,7 @@ size = Vector3(0.44384766, 0.12084961, 0.35858154)
 
 [node name="Paper" type="Area3D" unique_id=1954391086]
 script = ExtResource("1_vas6c")
-task = ExtResource("2_hc6lj")
+task_instance = ExtResource("2_hc6lj")
 sfx = ExtResource("3_hc6lj")
 
 [node name="Small Stack of Paper" parent="." unique_id=1859986365 instance=ExtResource("1_ldlei")]

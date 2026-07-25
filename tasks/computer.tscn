@@ -9,7 +9,7 @@
 
 [node name="Computer" type="Area3D" unique_id=233472860]
 script = ExtResource("1_8pqrt")
-task = ExtResource("2_ngusg")
+task_instance = ExtResource("2_ngusg")
 sfx = ExtResource("3_ngusg")
 
 [node name="Computer" parent="." unique_id=1157794066 instance=ExtResource("1_om4aa")]

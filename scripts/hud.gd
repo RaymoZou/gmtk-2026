@@ -4,6 +4,8 @@ extends CanvasLayer
 @onready var animation_player : AnimationPlayer = $AnimationPlayer
 var task_item_ui : PackedScene = preload("res://ui/TaskItemUI.tscn")
 @export var task_manager : TaskManager
+# tasks is description : {completed : total}
+var tasks: Dictionary[String, Dictionary] = {}
 
 # we want the actual clock to start at 9am
 const OFFSET : int = 9
@@ -20,21 +22,27 @@ func _ready() -> void:
 	player.hold_progress.connect(_on_hold_progress)
 
 
-func _on_tasks_updated(tasks : Array[Task]) -> void:
+func _on_tasks_updated(new_tasks : Array[Task]) -> void:
 	for child in %Tasks.get_children():
 		child.queue_free()
+	tasks.clear()
 
-	for task in tasks:
+	# construct the dictionary
+	for task : Task in new_tasks:
+		if task.description not in tasks:
+			tasks[task.description] = {"completed": 0, "total": 0}
+		tasks[task.description]["total"] += 1
+		if task.status == Task.Status.COMPLETED:
+			tasks[task.description]["completed"] += 1
+
+	# render the dictionary
+	for desc : String in tasks.keys():
 		var label : RichTextLabel = task_item_ui.instantiate()
-		match task.status:
-			Task.Status.COMPLETED:
-				label.text = "[x] " + task.description
-				label.modulate = Color.GREEN
-			Task.Status.FAILED:
-				label.text = "[!] " + task.description
-				label.modulate = Color.RED
-			_:
-				label.text = "[ ] " + task.description
+		var completed : int = tasks[desc]["completed"]
+		var total : int = tasks[desc]["total"]
+		label.text = "%s (%d/%d)" % [desc, completed, total]
+		if completed == total:
+			label.modulate = Color.GREEN
 		%Tasks.add_child(label)
 
 func _on_all_tasks_completed() -> void:
