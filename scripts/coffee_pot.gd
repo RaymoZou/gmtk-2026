@@ -1,7 +1,8 @@
 class_name CoffeePot
 extends Interactable
 
-const EFFICIENCY_FACTOR : float = 2
+const EFFICIENCY_FACTOR : float = 2 # how much to reduce the hold time 
+const DURATION : float = 5.0 # duration in seconds
 
 var upgrade : LevelUpgradeInfo = preload("res://upgrades/coffee_pot.tres")
 
@@ -10,8 +11,7 @@ func _ready() -> void:
 		queue_free()
 
 func interact(player: Player):
-	print("Speed has been upgraded for %s" % player.name)
-	player.hold_duration /= EFFICIENCY_FACTOR
-	print("Player hold duration is now %s" % player.hold_duration)
+	# player.hold_duration /= EFFICIENCY_FACTOR
 	%Jug.hide()
 	can_interact = false
+	player.increase_productivity(EFFICIENCY_FACTOR, DURATION)

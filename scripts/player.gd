@@ -31,6 +31,14 @@ func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	day.day_ended.connect(_on_day_ended)
 
+# temporarily decreases hold time by 'hold' seconds
+# for 'duration' seconds
+func increase_productivity(hold_factor : float, duration: float):
+	var prev_hold : float = hold_duration
+	hold_duration = (hold_duration / hold_factor)
+	await get_tree().create_timer(duration).timeout
+	hold_duration = prev_hold
+
 
 func _on_day_ended(_success: bool):
 	print("day has ended")
