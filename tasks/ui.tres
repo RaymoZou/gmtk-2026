@@ -1,12 +1,18 @@
 [gd_resource type="Theme" format=3 uid="uid://dwsvceof7d8vm"]
 
 [ext_resource type="FontFile" uid="uid://con1xf1y3c04w" path="res://source-sans-pro/SourceSansPro-Semibold.otf" id="1_1rx06"]
+[ext_resource type="FontFile" uid="uid://infc3ohvbhb6" path="res://source-sans-pro/SourceSansPro-Bold.otf" id="2_8lt1h"]
+[ext_resource type="FontFile" uid="uid://7hah1kpsibvv" path="res://source-sans-pro/SourceSansPro-BoldIt.otf" id="3_kg6af"]
+[ext_resource type="FontFile" uid="uid://h2xbjwr3ykiq" path="res://source-sans-pro/SourceSansPro-It.otf" id="4_ie080"]
+[ext_resource type="FontFile" uid="uid://bpmn18wf4yq6s" path="res://source-sans-pro/SourceSansPro-Regular.otf" id="5_spf6c"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4u2vk"]
 bg_color = Color(0, 0.6, 1, 1)
 
 [resource]
 default_font = ExtResource("1_1rx06")
+GridContainer/constants/v_separation = 8
+HBoxContainer/constants/separation = 16
 Label/font_sizes/font_size = 24
 Label/fonts/font = ExtResource("1_1rx06")
 MarginContainer/constants/margin_bottom = 16
@@ -18,3 +24,7 @@ ProgressBar/styles/fill = SubResource("StyleBoxFlat_4u2vk")
 RichTextLabel/colors/font_outline_color = Color(0, 0, 0, 1)
 RichTextLabel/constants/outline_size = 5
 RichTextLabel/font_sizes/normal_font_size = 20
+RichTextLabel/fonts/bold_font = ExtResource("2_8lt1h")
+RichTextLabel/fonts/bold_italics_font = ExtResource("3_kg6af")
+RichTextLabel/fonts/italics_font = ExtResource("4_ie080")
+RichTextLabel/fonts/normal_font = ExtResource("5_spf6c")

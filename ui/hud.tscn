@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cb7y7ycsn68bh" path="res://scripts/hud.gd" id="1_37p78"]
 [ext_resource type="Theme" uid="uid://dwsvceof7d8vm" path="res://tasks/ui.tres" id="2_64ctp"]
 [ext_resource type="Texture2D" uid="uid://c2jkgwjudedxr" path="res://clock.svg" id="3_8sq4i"]
+[ext_resource type="Texture2D" uid="uid://drq8axvteu0qs" path="res://assets/coffee-cup.svg" id="4_7ihmi"]
 
 [sub_resource type="Animation" id="Animation_8sq4i"]
 length = 0.001
@@ -89,14 +90,17 @@ offset_left = -275.0
 offset_bottom = 438.0
 grow_horizontal = 0
 
-[node name="Tasks" type="VBoxContainer" parent="Control/TaskContainer" unique_id=2051675502]
-unique_name_in_owner = true
+[node name="MarginContainer" type="MarginContainer" parent="Control/TaskContainer" unique_id=1600611348]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Tasks" type="VBoxContainer" parent="Control/TaskContainer/MarginContainer" unique_id=2051675502]
+unique_name_in_owner = true
+layout_mode = 2
 
 [node name="AllDoneLabel" type="Label" parent="Control" unique_id=1804921019]
 unique_name_in_owner = true
@@ -115,48 +119,6 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
 text = "All tasks complete! Wait until 5 PM."
 horizontal_alignment = 1
-
-[node name="DayOverMenu" type="Panel" parent="Control" unique_id=850487690]
-unique_name_in_owner = true
-visible = false
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -270.5
-offset_top = -172.5
-offset_right = 270.5
-offset_bottom = 172.5
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="Control/DayOverMenu" unique_id=1457571494]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="GridContainer" type="GridContainer" parent="Control/DayOverMenu/MarginContainer" unique_id=197933024]
-layout_mode = 2
-
-[node name="DayOverLabel" type="Label" parent="Control/DayOverMenu/MarginContainer/GridContainer" unique_id=1877768613]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 4
-text = "RESULT"
-horizontal_alignment = 1
-
-[node name="RestartButton" type="Button" parent="Control/DayOverMenu/MarginContainer/GridContainer" unique_id=16259029]
-unique_name_in_owner = true
-layout_mode = 2
-text = "NEXT DAY"
 
 [node name="HoldProgressBar" type="ProgressBar" parent="Control" unique_id=1315343181]
 unique_name_in_owner = true
@@ -197,6 +159,75 @@ theme_override_constants/outline_size = 4
 text = "INTERACT_TEXT"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="Control" unique_id=1875303702]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -160.0
+offset_right = 736.0
+grow_vertical = 0
+
+[node name="ActivePerksContainer" type="HBoxContainer" parent="Control/MarginContainer2" unique_id=1935075376]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("2_64ctp")
+
+[node name="EnergizedIcon" type="TextureRect" parent="Control/MarginContainer2/ActivePerksContainer" unique_id=513199426]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+texture = ExtResource("4_7ihmi")
+expand_mode = 1
+stretch_mode = 2
+
+[node name="DayOverMenu" type="Panel" parent="." unique_id=763436555]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="DayOverMenu" unique_id=704404473]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="GridContainer" type="VBoxContainer" parent="DayOverMenu/MarginContainer" unique_id=1473498665]
+layout_mode = 2
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="DayOverLabel" type="RichTextLabel" parent="DayOverMenu/MarginContainer/GridContainer" unique_id=1201436626]
+unique_name_in_owner = true
+layout_mode = 2
+bbcode_enabled = true
+text = "RESULT_TEXT_HERE"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="CardContainer" type="HBoxContainer" parent="DayOverMenu/MarginContainer/GridContainer" unique_id=2102846297]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="RestartButton" type="Button" parent="DayOverMenu/MarginContainer/GridContainer" unique_id=485513688]
+unique_name_in_owner = true
+layout_mode = 2
+text = "NEXT DAY"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1554617740]
 libraries/ = SubResource("AnimationLibrary_8sq4i")

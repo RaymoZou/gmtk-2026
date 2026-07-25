@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="LevelUpgradeInfo" format=3 uid="uid://c15k68ctqoss5"]
+
+[ext_resource type="Texture2D" uid="uid://w5kafc3luitw" path="res://icon.svg" id="1_r0bb6"]
+[ext_resource type="Script" uid="uid://de5gdp7og8pek" path="res://upgrades/level_upgrade_info.gd" id="2_16o8l"]
+
+[resource]
+script = ExtResource("2_16o8l")
+title = "Overtime I"
+description = "+1 working day hour. The day now ends at 6pm instead of 5pm."
+funny_text = "\"Who doesn't like staying a bit longer to maximize shareholder value?\""
+icon = ExtResource("1_r0bb6")
+metadata/_custom_type_script = "uid://de5gdp7og8pek"

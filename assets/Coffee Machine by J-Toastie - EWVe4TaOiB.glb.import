@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://biuvo7d5amggu"
-path="res://.godot/imported/Table Large Circular.glb-ae55acb1733e2aa58247e762a2ae28c7.scn"
+uid="uid://bjxq8a5l82ypd"
+path="res://.godot/imported/Coffee Machine by J-Toastie - EWVe4TaOiB.glb-dc266404ee98910a8972eca121fe869a.scn"
 
 [deps]
 
-source_file="res://assets/Office Pack-glb/Table Large Circular.glb"
-dest_files=["res://.godot/imported/Table Large Circular.glb-ae55acb1733e2aa58247e762a2ae28c7.scn"]
+source_file="res://assets/Coffee Machine by J-Toastie - EWVe4TaOiB.glb"
+dest_files=["res://.godot/imported/Coffee Machine by J-Toastie - EWVe4TaOiB.glb-dc266404ee98910a8972eca121fe869a.scn"]
 
 [params]
 
@@ -41,7 +41,7 @@ materials/extract_format=0
 materials/extract_path=""
 _subresources={
 "nodes": {
-"PATH:RootNode/Table_large_circular": {
+"PATH:Machine_Cube_001": {
 "generate/physics": true
 }
 }
