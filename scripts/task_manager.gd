@@ -12,12 +12,8 @@ func _ready() -> void:
 	for interactable : InteractableTask in interactable_tasks:
 		interactable.task_completed.connect(_on_interactable_task_completed)
 
-		# choose x from interactable_tasks
-		# from x, choose y repetitions
 		for instance in interactable.task_instances:
 			curr_tasks.push_back(instance)
-
-		# curr_tasks.push_back(get_random_task())
 
 	tasks_updated.emit(curr_tasks)
 
@@ -28,9 +24,9 @@ func is_incomplete(task: Task) -> bool:
 	return task.status == Task.Status.INCOMPLETE
 
 
-func _on_interactable_task_completed(task: Task) -> void:
-	if task in curr_tasks:
-		tasks_updated.emit(curr_tasks)
+func _on_interactable_task_completed(_task: Task) -> void:
+	# if task in curr_tasks:
+	tasks_updated.emit(curr_tasks)
 
 	# check if there are any incomplete tasks
 	var has_incomplete = curr_tasks.any(is_incomplete)

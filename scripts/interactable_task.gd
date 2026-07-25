@@ -8,7 +8,7 @@ signal task_completed(task : Task)
 @export var sfx : Resource # to be populated in the Inspector
 @onready var sound_player: AudioStreamPlayer3D = $AudioStreamPlayer3D
 var task_instances : Array[Task]
-var num_instances : int = 2
+var num_instances : int = 1 # this scales with the number of days
 
 # duplicate the task x times
 func _enter_tree() -> void:
