@@ -101,6 +101,7 @@ func _on_day_ended(success: bool):
 	else:
 		%DayOverLabel.text = "HR would like to have a word with you in their office..."
 		%DayOverLabel.modulate = Color.RED
+		# clear the GameManager game state
 		%RestartButton.text = "PLAY AGAIN"
 
 func _on_focused_changed(text: String, visible: bool) -> void:
