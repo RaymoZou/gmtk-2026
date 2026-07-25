@@ -42,3 +42,5 @@ printer 2 by drdock -- https://freesound.org/s/828423/ -- License: Creative Comm
 is licensed under CC BY 3.0 (https://creativecommons.org/licenses/by/3.0/)
 - Coffee Machine by J-Toastie [CC-BY] (https://creativecommons.org/licenses/by/3.0/) via Poly Pizza (https://poly.pizza/m/EWVe4TaOiB)
 - Coffee cup icon by Delapouite under CC BY 3.0 (https://game-icons.net/1x1/delapouite/coffee-pot.html)
+- "Extra time icon" by Delapouite (https://game-icons.net/1x1/delapouite/extra-time.html) 
+is licensed under CC BY 3.0 (https://creativecommons.org/licenses/by/3.0/)

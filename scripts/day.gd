@@ -13,6 +13,11 @@ signal day_ended(success: bool)
 @onready var task_manager : TaskManager = $TaskManager
 
 func _ready() -> void:
+	# check for Overtime I upgrade
+	var overtime_upgrade : LevelUpgradeInfo	= preload("res://upgrades/overtime.tres")
+	if overtime_upgrade in GameManager.chosen_upgrades:
+		ending_hour += 1
+		print("The day has been extended to %s" % get_readable_hour())
 	start_game()
 
 # NOTE: assume main.tscn is the parent
