@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource("1_s0y2c")
-description = "Filing tax documents for annual report"
+description = "File tax documents for annual report"
 metadata/_custom_type_script = "uid://c863aj41u3h0h"

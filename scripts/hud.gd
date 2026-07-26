@@ -48,6 +48,9 @@ func _ready() -> void:
 	%RestartButton.pressed.connect(_on_button_pressed)
 	GameManager.upgrade_selected.connect(_on_upgrade_selected)
 
+	# display the current day
+	%DayLabel.text = "Day %d" % GameManager.curr_day
+
 func _on_upgrade_selected(upgrade: LevelUpgradeInfo):
 	curr_selected = upgrade
 
