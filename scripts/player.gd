@@ -6,7 +6,7 @@ extends CharacterBody3D
 @export var jump_velocity: float = 4.5
 @export var gravity: float = 9.8
 @export var move_speed: float = 2
-@export var hold_duration: float = 0.5 # how long to hold to complete a task
+@export var hold_duration: float = 2 # how long to hold to complete a task
 
 @export_group("Mouse Look")
 @export var mouse_sensitivity: float = 0.003
@@ -56,7 +56,7 @@ func _on_day_ended(_success: bool):
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_cancel"):
+	if event.is_action_pressed("ui_cancel") or event.is_action_pressed("fullscreen"):
 		Input.mouse_mode = (
 			Input.MOUSE_MODE_VISIBLE
 			if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED

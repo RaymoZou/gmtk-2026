@@ -6,6 +6,13 @@
 [ext_resource type="Texture2D" uid="uid://drq8axvteu0qs" path="res://assets/coffee-cup.svg" id="4_7ihmi"]
 [ext_resource type="Texture2D" uid="uid://5n6kxnvgf2pw" path="res://assets/walk.svg" id="5_en2x2"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_crosshair"]
+bg_color = Color(1, 1, 1, 0.8)
+corner_radius_top_left = 99
+corner_radius_top_right = 99
+corner_radius_bottom_right = 99
+corner_radius_bottom_left = 99
+
 [sub_resource type="Animation" id="Animation_8sq4i"]
 length = 0.001
 tracks/0/type = "value"
@@ -82,7 +89,15 @@ theme_override_font_sizes/normal_font_size = 24
 text = "CURRENT_HOUR"
 fit_content = true
 
+[node name="DayLabel" type="RichTextLabel" parent="Control/MarginContainer/VBoxContainer" unique_id=1583476069]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 24
+text = "DAY_LABEL"
+fit_content = true
+
 [node name="TaskContainer" type="Panel" parent="Control" unique_id=927753372]
+visible = false
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -91,17 +106,21 @@ offset_left = -275.0
 offset_bottom = 438.0
 grow_horizontal = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="Control/TaskContainer" unique_id=1600611348]
+[node name="Crosshair" type="Panel" parent="Control" unique_id=1131782512]
+unique_name_in_owner = true
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="Tasks" type="VBoxContainer" parent="Control/TaskContainer/MarginContainer" unique_id=2051675502]
-unique_name_in_owner = true
-layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_crosshair")
 
 [node name="AllDoneLabel" type="Label" parent="Control" unique_id=1804921019]
 unique_name_in_owner = true
@@ -192,6 +211,19 @@ layout_mode = 2
 texture = ExtResource("5_en2x2")
 expand_mode = 1
 stretch_mode = 2
+
+[node name="MarginContainer3" type="MarginContainer" parent="Control" unique_id=1600611348]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -375.0
+offset_bottom = 438.0
+grow_horizontal = 0
+
+[node name="Tasks" type="VBoxContainer" parent="Control/MarginContainer3" unique_id=2051675502]
+unique_name_in_owner = true
+layout_mode = 2
 
 [node name="DayOverMenu" type="Panel" parent="." unique_id=763436555]
 unique_name_in_owner = true
