@@ -10,8 +10,8 @@ var is_tasks_completed : bool = false
 
 func _ready() -> void:
 	for interactable : InteractableTask in interactable_tasks:
+		interactable.create_instances()
 		interactable.task_completed.connect(_on_interactable_task_completed)
-
 		for instance in interactable.task_instances:
 			curr_tasks.push_back(instance)
 

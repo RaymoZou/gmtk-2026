@@ -8,10 +8,11 @@ signal task_completed(task : Task)
 @export var sfx : Resource # to be populated in the Inspector
 @onready var sound_player: AudioStreamPlayer3D = $AudioStreamPlayer3D
 var task_instances : Array[Task]
-var num_instances : int = 1 # this scales with the number of days
+var num_instances : int = 1
 
-# duplicate the task x times
-func _enter_tree() -> void:
+func create_instances() -> void:
+	num_instances = randi_range(1, GameManager.curr_day)
+	task_instances.clear()
 	for i in num_instances:
 		task_instances.push_back(task_instance.duplicate())
 

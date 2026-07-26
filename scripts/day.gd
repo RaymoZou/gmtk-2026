@@ -54,6 +54,8 @@ func end_day() -> void:
 	timer.timeout.disconnect(_on_time_out) # stop virtual time
 	if task_manager.is_tasks_completed:
 		day_ended.emit(true)
+		GameManager.curr_day += 1
 	else:
 		day_ended.emit(false)
 		GameManager.reset_upgrades()
+		GameManager.curr_day = 1 # reset the day
