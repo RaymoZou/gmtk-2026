@@ -56,3 +56,4 @@ func end_day() -> void:
 		day_ended.emit(true)
 	else:
 		day_ended.emit(false)
+		GameManager.reset_upgrades()

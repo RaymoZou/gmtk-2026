@@ -33,13 +33,18 @@ func _ready() -> void:
 	if speedwalk_upgrade in GameManager.chosen_upgrades:
 		%SpeedwalkIcon.show()	
 
-
+	# CREATING UPGRADE OPTIONS
+	# Get a copy of the available upgrades, shuffle them and then pop it
 	var num_options : int = min(GameManager.available_options.size(), MAX_OPTIONS)
+	var available_copy = GameManager.available_options.duplicate()
+	available_copy.shuffle()
 	for i in num_options:
-		var random_upgrade : LevelUpgradeInfo = GameManager.available_options.pick_random()
+		# var random_upgrade : LevelUpgradeInfo = GameManager.available_options.pick_random()
+		var random_upgrade : LevelUpgradeInfo = available_copy.pop_front()
 		var template : LevelUpgradeCard = card_template.instantiate()
 		template.upgrade_info = random_upgrade
 		%CardContainer.add_child(template)
+
 	%RestartButton.pressed.connect(_on_button_pressed)
 	GameManager.upgrade_selected.connect(_on_upgrade_selected)
 
