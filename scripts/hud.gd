@@ -36,7 +36,7 @@ func _ready() -> void:
 	# CREATING UPGRADE OPTIONS
 	# Get a copy of the available upgrades, shuffle them and then pop it
 	var num_options : int = min(GameManager.available_options.size(), MAX_OPTIONS)
-	var available_copy = GameManager.available_options
+	var available_copy = GameManager.available_options.duplicate()
 	available_copy.shuffle()
 	for i in num_options:
 		# var random_upgrade : LevelUpgradeInfo = GameManager.available_options.pick_random()

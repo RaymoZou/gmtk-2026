@@ -20,5 +20,5 @@ signal upgrade_selected(upgrade: LevelUpgradeInfo)
 signal upgrade_confirmed()
 
 func reset_upgrades():
-	available_options = ALL_UPGRADES
+	available_options = ALL_UPGRADES.duplicate()
 	chosen_upgrades = []
