@@ -6,7 +6,7 @@ extends CharacterBody3D
 @export var jump_velocity: float = 4.5
 @export var gravity: float = 9.8
 @export var move_speed: float = 2
-@export var hold_duration: float = 0.5 # how long to hold to complete a task
+@export var hold_duration: float = 2 # how long to hold to complete a task
 
 @export_group("Mouse Look")
 @export var mouse_sensitivity: float = 0.003

@@ -54,3 +54,5 @@ func _on_interactable_task_completed(_task: Task) -> void:
 	if not has_incomplete:
 		all_tasks_completed.emit()
 		is_tasks_completed = true
+		var day : Day = get_parent()	
+		day.end_day()

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="LevelUpgradeInfo" format=3 uid="uid://c7ur8s8aaulgp"]
+
+[ext_resource type="Texture2D" uid="uid://bvd0svpl6o0vu" path="res://assets/coffee-beans.svg" id="1_cohi6"]
+[ext_resource type="Script" uid="uid://de5gdp7og8pek" path="res://upgrades/level_upgrade_info.gd" id="2_v8orn"]
+
+[resource]
+script = ExtResource("2_v8orn")
+title = "Better Beans"
+description = "Effects of coffee last longer and are stronger"
+funny_text = "\"That is some STRONG coffee...\""
+icon = ExtResource("1_cohi6")
+metadata/_custom_type_script = "uid://de5gdp7og8pek"

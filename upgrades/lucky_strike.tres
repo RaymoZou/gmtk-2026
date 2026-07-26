@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("2_iapph")
 title = "Lucky Strike"
-description = "50% chance of completing a random task upon task completion. Max 3 uses each day."
-funny_text = "\"If I keep this up surely I'll be promoted in no time... right?\""
+description = "50% chance of completing a random task. Max 3 uses each day."
+funny_text = "\"I better be next in line for that promotion...\""
 icon = ExtResource("1_2xili")
 metadata/_custom_type_script = "uid://de5gdp7og8pek"
