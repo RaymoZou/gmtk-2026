@@ -54,6 +54,17 @@ func increase_productivity(hold_factor : float, duration: float):
 func _on_day_ended(_success: bool):
 	print("day has ended")
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+		rotate_y(-event.relative.x * mouse_sensitivity)
+
+		_pitch = clamp(
+			_pitch - event.relative.y * mouse_sensitivity,
+			deg_to_rad(min_pitch_deg),
+			deg_to_rad(max_pitch_deg)
+		)
+		camera_pivot.rotation.x = _pitch
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel") or event.is_action_pressed("fullscreen"):
@@ -76,17 +87,6 @@ func _unhandled_input(event: InputEvent) -> void:
 		_is_holding = false
 		_hold_progress = 0.0
 		hold_progress.emit(0.0)
-
-	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
-		rotate_y(-event.relative.x * mouse_sensitivity)
-
-		_pitch = clamp(
-			_pitch - event.relative.y * mouse_sensitivity,
-			deg_to_rad(min_pitch_deg),
-			deg_to_rad(max_pitch_deg)
-		)
-		camera_pivot.rotation.x = _pitch
-
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
