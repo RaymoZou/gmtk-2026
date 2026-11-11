@@ -69,6 +69,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		_hold_progress = 0.0
 		hold_progress.emit(0.0)
 
+
 	if event.is_action_released("interact") and _is_holding:
 		if _focused_interactable:
 			_focused_interactable.is_interacting = false
@@ -132,8 +133,13 @@ func _update_focused() -> void:
 
 	if interact_ray.is_colliding() and collider is Interactable and collider.can_interact:
 		new_focus = collider
-
+	
 	if new_focus != _focused_interactable:
+		# stop the audio playing on the current focused interactable if
+		# there is one before we lose reference to it on the next line
+		if _focused_interactable:
+			_focused_interactable.is_interacting = false
+			
 		_focused_interactable = new_focus
 		if _focused_interactable:
 			focused_changed.emit(_focused_interactable.interact_text, true)
